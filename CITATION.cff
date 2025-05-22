@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "Qompass AI Glass"
+title: "glass"
 message: "If you use this software, please cite it as below."
 authors:
   - family-names: "Porter"
@@ -19,4 +19,4 @@ keywords:
   - performance
   - rust
   - systems programming
-abstract: "Qompass AI Glass"
+abstract: "Qompass AI Glass: Your secure remote portal"
