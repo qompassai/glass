@@ -1,6 +1,5 @@
 name: build
 
-
 on:
   workflow_dispatch:
   push:
@@ -62,7 +61,7 @@ jobs:
           path: |
             target/${{ matrix.job.target }}/release/hbbr
             target/${{ matrix.job.target }}/release/hbbs
-            target/${{ matrix.job.target }}/release/rustdesk-utils
+            target/${{ matrix.job.target }}/release/glass-utils
           if-no-files-found: error
 
   build-win:
@@ -129,7 +128,7 @@ jobs:
           mkdir setup\logs
           makensis /V1 setup.nsi
           mkdir SignOutput
-          mv RustDeskServer.Setup.exe SignOutput\
+          mv Glass.Setup.exe SignOutput\
           mv ..\target\x86_64-pc-windows-msvc\release\*.exe SignOutput\
         working-directory: ./ui
 
@@ -150,11 +149,10 @@ jobs:
           path: |
             ui\SignOutput\hbbr.exe
             ui\SignOutput\hbbs.exe
-            ui\SignOutput\rustdesk-utils.exe
-            ui\SignOutput\RustDeskServer.Setup.exe
+            ui\SignOutput\glass-utils.exe
+            ui\SignOutput\Glass.Setup.exe
           if-no-files-found: error
 
-  # github (draft) release with all binaries
   release:
 
     name: Github release
@@ -188,15 +186,14 @@ jobs:
         run: |
           sudo apt update
           DEBIAN_FRONTEND=noninteractive sudo apt install -y zip
-          zip ${{ matrix.job.name }}/rustdesk-server-${{ matrix.job.os }}-${{ matrix.job.name }}.zip ${{ matrix.job.name }}/*
+          zip ${{ matrix.job.name }}/glass-server-${{ matrix.job.os }}-${{ matrix.job.name }}.zip ${{ matrix.job.name }}/*
 
       - name: Create Release (${{ matrix.job.os }} - (${{ matrix.job.name }})
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          files: ${{ matrix.job.name }}/rustdesk-server-${{ matrix.job.os }}-${{ matrix.job.name }}.zip
-            
-  # docker build and push of single-arch images
+          files: ${{ matrix.job.name }}/glass-${{ matrix.job.os }}-${{ matrix.job.name }}.zip
+
   docker:
 
     name: Docker push - ${{ matrix.job.name }}
@@ -266,7 +263,6 @@ jobs:
             ${{ secrets.DOCKER_IMAGE }}:${{ env.MAJOR_TAG }}-${{ matrix.job.name }}
           labels: ${{ steps.meta.outputs.labels }}
 
-  # docker build and push of multiarch images
   docker-manifest:
 
     name: Docker manifest
@@ -383,7 +379,6 @@ jobs:
             ${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.MAJOR_TAG }}-${{ matrix.job.name }}
           labels: ${{ steps.meta.outputs.labels }}
 
-  # docker build and push of multiarch images
   docker-manifest-classic:
 
     name: Docker manifest
@@ -407,8 +402,6 @@ jobs:
           echo "GIT_TAG=$T" >> $GITHUB_ENV
           echo "MAJOR_TAG=$M" >> $GITHUB_ENV
 
-      # manifest for :1.2.3 tag
-      #  this has to run only if invoked by a new tag
       - name: Create and push manifest (:ve.rs.ion)
         uses: Noelware/docker-manifest-action@master
         if: github.event_name != 'workflow_dispatch'
@@ -417,7 +410,6 @@ jobs:
           extra-images: ${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.GIT_TAG }}-amd64,${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.GIT_TAG }}-arm64v8,${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.GIT_TAG }}-armv7
           push: true
 
-      # manifest for :1 tag (major release)
       - name: Create and push manifest (:major)
         uses: Noelware/docker-manifest-action@master
         with:
@@ -425,7 +417,6 @@ jobs:
           extra-images: ${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.MAJOR_TAG }}-amd64,${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.MAJOR_TAG }}-arm64v8,${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.MAJOR_TAG }}-armv7
           push: true
 
-      # manifest for :latest tag
       - name: Create and push manifest (:latest)
         uses: Noelware/docker-manifest-action@master
         with:
@@ -481,6 +472,6 @@ jobs:
         with:
           draft: true
           files: |
-            debian-build/rustdesk-server-hbbr_*_${{ matrix.job.debian_platform }}.deb
-            debian-build/rustdesk-server-hbbs_*_${{ matrix.job.debian_platform }}.deb
-            debian-build/rustdesk-server-utils_*_${{ matrix.job.debian_platform }}.deb
+            debian-build/glass-hbbr_*_${{ matrix.job.debian_platform }}.deb
+            debian-build/glass-hbbs_*_${{ matrix.job.debian_platform }}.deb
+            debian-build/glass-utils_*_${{ matrix.job.debian_platform }}.deb
