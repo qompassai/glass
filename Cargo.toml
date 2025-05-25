@@ -3,7 +3,7 @@ name = "glass"
 version = "0.1.0"
 authors = ["Qompass AI <map@qompass.ai>"]
 build = "build.rs"
-default-run = "hbbs"
+default-run = "hbbr"
 
 [[bin]]
 name = "hbbr"
@@ -15,8 +15,16 @@ path = "src/utils.rs"
 
 
 [dependencies]
-oqs = { version = "0.11.0", default-features = false, features = ["vendored", "kems", "sigs"] }
-oqs-sys = { version = "0.11.0", default-features = false, features = ["vendored", "kems", "sigs"] }
+oqs = { version = "0.11.0", default-features = false, features = [
+  "vendored",
+  "kems",
+  "sigs",
+] }
+oqs-sys = { version = "0.11.0", default-features = false, features = [
+  "vendored",
+  "kems",
+  "sigs",
+] }
 hbb_common = { path = "libs/hbb_common" }
 serde_derive = "1.0"
 serde = "1.0"
@@ -30,7 +38,13 @@ mac_address = "1.1"
 whoami = "1.2"
 base64 = "0.22.1"
 axum = { version = "0.5", features = ["headers"] }
-sqlx = { version = "0.6", features = [ "runtime-tokio-rustls", "sqlite", "macros", "chrono", "json" ] }
+sqlx = { version = "0.6", features = [
+  "runtime-tokio-rustls",
+  "sqlite",
+  "macros",
+  "chrono",
+  "json",
+] }
 deadpool = "0.12.2"
 async-trait = "0.1"
 async-speed-limit = { git = "https://github.com/open-trade/async-speed-limit" }
@@ -46,7 +60,11 @@ tungstenite = "0.17"
 regex = "1.4"
 tower-http = { version = "0.6.2", features = ["fs", "trace", "cors"] }
 http = "0.2"
-flexi_logger = { version = "0.22", features = ["async", "use_chrono_for_offset", "dont_minimize_extra_stacks"] }
+flexi_logger = { version = "0.22", features = [
+  "async",
+  "use_chrono_for_offset",
+  "dont_minimize_extra_stacks",
+] }
 ipnetwork = "0.20"
 local-ip-address = "0.6.5"
 dns-lookup = "1.0.8"
@@ -62,7 +80,6 @@ exclude = ["ui"]
 [profile.release]
 codegen-units = 1
 incremental = false
-lto = "thin"
 opt-level = 3
 panic = "abort"
 strip = "debuginfo"
