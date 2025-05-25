@@ -9,7 +9,6 @@
 ![Repository Views](https://komarev.com/ghpvc/?username=qompassai-glass)
 ![GitHub all releases](https://img.shields.io/github/downloads/qompassai/glass/total?style=flat-square)
 
-
 <p align="center">
   <a href="https://www.rust-lang.org/"><img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" alt="Rust"></a>
   <br>
