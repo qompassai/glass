@@ -1,3 +1,6 @@
+//qompassai/glass/libs/hbb_common_src/quic.rs
+//Glass Quic
+//Copyright (C) 2025 Qompass AI, All rights reserved
 use crate::{allow_err, anyhow::anyhow, ResultType};
 use protobuf::Message;
 use std::{net::SocketAddr, sync::Arc};

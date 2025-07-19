@@ -1,0 +1,66 @@
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:7:19 unresolved import `tokio::stream::StreamExt`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:7:19 unresolved import `tokio::stream::StreamExt`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:20:36 failed to resolve: could not find `ServerConfigBuilder` in `quinn`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:7:19 unresolved import `tokio::stream::StreamExt`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:32:36 failed to resolve: could not find `ClientConfigBuilder` in `quinn`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:20:36 failed to resolve: could not find `ServerConfigBuilder` in `quinn`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:32:36 failed to resolve: could not find `ClientConfigBuilder` in `quinn`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:20:36 failed to resolve: could not find `ServerConfigBuilder` in `quinn`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:32:36 failed to resolve: could not find `ClientConfigBuilder` in `quinn`
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:127:44 the trait `protobuf::Message` is not dyn compatible
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/protobuf-3.7.2/src/message.rs:17:60 the trait `protobuf::Message` is not dyn compatible
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:127:44 the trait `protobuf::Message` is not dyn compatible
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/protobuf-3.7.2/src/message.rs:17:60 the trait `protobuf::Message` is not dyn compatible
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:127:44 the trait `protobuf::Message` is not dyn compatible
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/protobuf-3.7.2/src/message.rs:17:60 the trait `protobuf::Message` is not dyn compatible
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:31:41 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:57:5 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:31:41 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:57:5 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:62:38 the method `next` exists for mutable reference `&mut quinn::Incoming`, but its trait bounds were not satisfied
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:513:1 the method `next` exists for mutable reference `&mut quinn::Incoming`, but its trait bounds were not satisfied
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:62:38 the method `next` exists for mutable reference `&mut quinn::Incoming`, but its trait bounds were not satisfied
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:513:1 the method `next` exists for mutable reference `&mut quinn::Incoming`, but its trait bounds were not satisfied
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:72:45 no method named `next` found for struct `quinn::IncomingBiStreams` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.31/src/stream/stream/mod.rs:273:8 no method named `next` found for struct `quinn::IncomingBiStreams` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:72:45 no method named `next` found for struct `quinn::IncomingBiStreams` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.31/src/stream/stream/mod.rs:273:8 no method named `next` found for struct `quinn::IncomingBiStreams` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:129:16 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:31:41 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:57:5 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:129:13 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/result.rs:548:17 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:129:16 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:129:13 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/result.rs:548:17 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:62:38 the method `next` exists for mutable reference `&mut quinn::Incoming`, but its trait bounds were not satisfied
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:513:1 the method `next` exists for mutable reference `&mut quinn::Incoming`, but its trait bounds were not satisfied
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:72:45 no method named `next` found for struct `quinn::IncomingBiStreams` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.31/src/stream/stream/mod.rs:273:8 no method named `next` found for struct `quinn::IncomingBiStreams` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:129:16 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:129:13 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/result.rs:548:17 the size for values of type `[u8]` cannot be known at compilation time
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:17:22 no method named `stream_window_uni` found for struct `quinn::TransportConfig` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:18:50 no function or associated item named `default` found for struct `quinn::ServerConfig` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-proto-0.8.4/src/config.rs:439:5 no function or associated item named `default` found for struct `quinn::ServerConfig` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:17:22 no method named `stream_window_uni` found for struct `quinn::TransportConfig` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:24:41 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:57:5 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:18:50 no function or associated item named `default` found for struct `quinn::ServerConfig` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-proto-0.8.4/src/config.rs:439:5 no function or associated item named `default` found for struct `quinn::ServerConfig` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:24:41 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:57:5 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:17:22 no method named `stream_window_uni` found for struct `quinn::TransportConfig` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:18:50 no function or associated item named `default` found for struct `quinn::ServerConfig` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-proto-0.8.4/src/config.rs:439:5 no function or associated item named `default` found for struct `quinn::ServerConfig` in the current scope
+error /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:24:41 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+error /home/phaedrus/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quinn-0.8.5/src/endpoint.rs:57:5 no function or associated item named `builder` found for struct `quinn::Endpoint` in the current scope
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/lib.rs:94:1 empty line after doc comment
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/lib.rs:94:1 empty line after doc comment
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/lib.rs:94:1 empty line after doc comment
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:136:25 unused variable: `rx`
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:136:48 unused variable: `tx`
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:136:25 unused variable: `rx`
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:136:48 unused variable: `tx`
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:136:25 unused variable: `rx`
+warning /home/phaedrus/.GH/Qompass/Rust/Glass/libs/hbb_common/src/quic.rs:136:48 unused variable: `tx`

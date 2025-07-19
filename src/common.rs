@@ -125,7 +125,7 @@ pub fn gen_sk(wait: u64) -> (String, Option<sign::SecretKey>) {
     } else {
         let gen_func = || {
             let (tmp, sk) = sign::gen_keypair();
-            (base64::encode(tmp), sk)
+            (Engine::encode(tmp), sk)
         };
         let (mut pk, mut sk) = gen_func();
         for _ in 0..300 {
