@@ -1,2 +1,0 @@
-bin/hbbr usr/bin
-systemd/glass-hbbr.service lib/systemd/system
