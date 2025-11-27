@@ -1,0 +1,65 @@
+#!/bin/sh
+
+# PROVIDE: glass_hbbr
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# glass_hbbr_enable (bool):            Set to NO by default.
+#               Set it to YES to enable glass_hbbr.
+# glass_hbbr_args (string):            Set extra arguments to pass to glass_hbbr
+#               Default is "-k _".
+# glass_hbbr_user (string):            Set user that glass_hbbr will run under
+#               Default is "root".
+# glass_hbbr_group (string):           Set group that glass_hbbr will run under
+#               Default is "wheel".
+
+. /etc/rc.subr
+
+name=glass_hbbr
+desc="Qompass AI Glass Relay Server"
+rcvar=glass_hbbr_enable
+
+load_rc_config $name
+
+: ${glass_hbbr_enable:=NO}
+: ${glass_hbbr_args="-k _"}
+: ${glass_hbbr_user:=glass}
+: ${glass_hbbr_group:=glass}
+
+pidfile=/var/run/glass_hbbr.pid
+command=/usr/sbin/daemon
+procname=/usr/local/sbin/hbbr
+glass_hbbr_chdir=/var/db/glass
+command_args="-p ${pidfile} -o /var/log/glass-hbbr.log ${procname} ${glass_hbbr_args}"
+## If you want the daemon do its log over syslog comment out the above line and remove the comment from the below replacement
+#command_args="-p ${pidfile} -T ${name} ${procname} ${glass_hbbr_args}"
+
+start_precmd=glass_hbbr_startprecmd
+
+glass_hbbr_startprecmd()
+{
+    if [ -e ${pidfile} ]; then
+        chown ${glass_hbbr_user}:${glass_hbbr_group} ${pidfile};
+    else
+        install -o ${glass_hbbr_user} -g ${glass_hbbr_group} /dev/null ${pidfile};
+    fi
+    if [ -e ${glass_hbbr_chdir} ]; then
+        chown -R ${glass_hbbr_user}:${glass_hbbr_group} ${glass_hbbr_chdir};
+        chmod -R 770 ${glass_hbbr_chdir};
+    else
+        mkdir -m 770 ${glass_hbbr_chdir};
+        chown ${glass_hbbr_user}:${glass_hbbr_group} ${glass_hbbr_chdir};
+    fi
+    if [ -e /var/log/glass-hbbr.log ]; then
+        chown -R ${glass_hbbr_user}:${glass_hbbr_group} /var/log/glass-hbbr.log;
+        chmod 660 /var/log/glass-hbbr.log;
+    else
+        install -o ${glass_hbbr_user} -g ${glass_hbbr_group} /dev/null /var/log/glass-hbbr.log;
+        chmod 660 /var/log/glass-hbbr.log;
+    fi
+}
+
+run_rc_command "$1"
