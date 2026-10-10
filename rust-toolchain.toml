@@ -14,5 +14,5 @@
 # drifting with whatever "stable" means this month.
 
 [toolchain]
-channel = "1.96.0"
+channel = "1.99.0"
 components = ["clippy", "rustfmt"]

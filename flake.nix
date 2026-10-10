@@ -46,8 +46,8 @@
       toolchainFor =
         system:
         fenix.packages.${system}.toolchainOf {
-          channel = "1.96.0";
-          sha256 = "sha256-mvUGEOHYJpn3ikC5hckneuGixaC+yGrkMM/liDIDgoU=";
+          channel = "1.99.0";
+          sha256 = "sha256-zm3dyIY2T414ZRR3EhLOvptzG6gta4WZUcawzMUWtqI=";
         };
       # The peer schema, verbatim from src/database.rs create_tables().
       peerSchema = ''
