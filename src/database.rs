@@ -1,4 +1,3 @@
-use async_trait::async_trait;
 use hbb_common::{log, ResultType};
 use sqlx::{
     sqlite::SqliteConnectOptions, ConnectOptions, Connection, Error as SqlxError, SqliteConnection,
@@ -13,7 +12,6 @@ pub struct DbPool {
     url: String,
 }
 
-#[async_trait]
 impl deadpool::managed::Manager for DbPool {
     type Type = SqliteConnection;
     type Error = SqlxError;
@@ -25,6 +23,7 @@ impl deadpool::managed::Manager for DbPool {
     async fn recycle(
         &self,
         obj: &mut SqliteConnection,
+        _metrics: &deadpool::managed::Metrics,
     ) -> deadpool::managed::RecycleResult<SqlxError> {
         Ok(obj.ping().await?)
     }
@@ -56,12 +55,11 @@ impl Database {
             .parse()
             .unwrap_or(1);
         log::debug!("MAX_DATABASE_CONNECTIONS={}", n);
-        let pool = Pool::new(
-            DbPool {
-                url: url.to_owned(),
-            },
-            n,
-        );
+        let pool = Pool::builder(DbPool {
+            url: url.to_owned(),
+        })
+        .max_size(n)
+        .build()?;
         let _ = pool.get().await?; // test
         let db = Database { pool };
         db.create_tables().await?;
@@ -150,6 +148,39 @@ mod tests {
     #[test]
     fn test_insert() {
         insert();
+    }
+
+    #[test]
+    fn test_insert_duplicate_and_missing() {
+        duplicate_and_missing();
+    }
+
+    #[tokio::main(flavor = "multi_thread")]
+    async fn duplicate_and_missing() {
+        let path = "test_adversarial.sqlite3";
+        let _ = std::fs::remove_file(path);
+        let db = super::Database::new(path).await.unwrap();
+        // validation: a normal insert round-trips through the pool
+        let guid = db
+            .insert_peer("peer-a", b"uuid-a", b"pk-a", "{}")
+            .await
+            .unwrap();
+        assert!(!guid.is_empty());
+        let peer = db.get_peer("peer-a").await.unwrap().expect("peer-a exists");
+        assert_eq!(peer.id, "peer-a");
+        // boundary: an unknown id is Ok(None), not an error
+        assert!(db.get_peer("no-such-peer").await.unwrap().is_none());
+        // adversarial: a duplicate id violates the unique index and must
+        // surface as an error, never a panic or a silent overwrite
+        assert!(db
+            .insert_peer("peer-a", b"uuid-b", b"pk-b", "{}")
+            .await
+            .is_err());
+        // adversarial: empty and oversized inputs must not panic
+        let _ = db.insert_peer("", b"", b"", "").await;
+        let long_id = "x".repeat(10_000);
+        assert!(db.get_peer(&long_id).await.unwrap().is_none());
+        let _ = std::fs::remove_file(path);
     }
 
     #[tokio::main(flavor = "multi_thread")]

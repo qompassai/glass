@@ -1,3 +1,4 @@
+use base64::{engine::general_purpose::STANDARD as BASE64, Engine as _};
 use dns_lookup::{lookup_addr, lookup_host};
 use hbb_common::{bail, ResultType};
 use sodiumoxide::crypto::sign;
@@ -26,14 +27,14 @@ fn error_then_help(msg: &str) {
 
 fn gen_keypair() {
     let (pk, sk) = sign::gen_keypair();
-    let public_key = base64::encode(pk);
-    let secret_key = base64::encode(sk);
+    let public_key = BASE64.encode(pk);
+    let secret_key = BASE64.encode(sk);
     println!("Public Key:  {public_key}");
     println!("Secret Key:  {secret_key}");
 }
 
 fn validate_keypair(pk: &str, sk: &str) -> ResultType<()> {
-    let sk1 = base64::decode(sk);
+    let sk1 = BASE64.decode(sk);
     if sk1.is_err() {
         bail!("Invalid secret key");
     }
@@ -45,7 +46,7 @@ fn validate_keypair(pk: &str, sk: &str) -> ResultType<()> {
     }
     let secret_key = secret_key.unwrap();
 
-    let pk1 = base64::decode(pk);
+    let pk1 = BASE64.decode(pk);
     if pk1.is_err() {
         bail!("Invalid public key");
     }

@@ -1,3 +1,4 @@
+use base64::{engine::general_purpose::STANDARD as BASE64, Engine as _};
 use clap::App;
 use hbb_common::{
     anyhow::{Context, Result},
@@ -113,11 +114,11 @@ pub fn gen_sk(wait: u64) -> (String, Option<sign::SecretKey>) {
     if let Ok(mut file) = std::fs::File::open(sk_file) {
         let mut contents = String::new();
         if file.read_to_string(&mut contents).is_ok() {
-            let sk = base64::decode(&contents).unwrap_or_default();
+            let sk = BASE64.decode(&contents).unwrap_or_default();
             if sk.len() == sign::SECRETKEYBYTES {
                 let mut tmp = [0u8; sign::SECRETKEYBYTES];
                 tmp[..].copy_from_slice(&sk);
-                let pk = base64::encode(&tmp[sign::SECRETKEYBYTES / 2..]);
+                let pk = BASE64.encode(&tmp[sign::SECRETKEYBYTES / 2..]);
                 log::info!("Private key comes from {}", sk_file);
                 return (pk, Some(sign::SecretKey(tmp)));
             }
@@ -125,7 +126,7 @@ pub fn gen_sk(wait: u64) -> (String, Option<sign::SecretKey>) {
     } else {
         let gen_func = || {
             let (tmp, sk) = sign::gen_keypair();
-            (Engine::encode(tmp), sk)
+            (BASE64.encode(tmp), sk)
         };
         let (mut pk, mut sk) = gen_func();
         for _ in 0..300 {
@@ -138,7 +139,7 @@ pub fn gen_sk(wait: u64) -> (String, Option<sign::SecretKey>) {
         if let Ok(mut f) = std::fs::File::create(&pub_file) {
             f.write_all(pk.as_bytes()).ok();
             if let Ok(mut f) = std::fs::File::create(sk_file) {
-                let s = base64::encode(&sk);
+                let s = BASE64.encode(&sk);
                 if f.write_all(s.as_bytes()).is_ok() {
                     log::info!("Private/public key written to {}/{}", sk_file, pub_file);
                     log::debug!("Public key: {}", pk);
