@@ -21,6 +21,62 @@
 
 ---
 
+<details id="Server">
+  <summary><strong>The Glass Server</strong></summary>
+
+Glass is a self-hosted rendezvous and relay server for remote-desktop
+clients: `hbbs` (ID/rendezvous server), `hbbr` (relay server), and
+`glass-utils` (key and diagnostics tooling). It is derived from the
+RustDesk open-source server codebase and is dual-licensed: AGPL-3.0
+for non-commercial use, Q-CDA 1.0 for commercial use (see
+`LICENSE-AGPL` and `LICENSE-QCDA`).
+
+### Binaries and ports
+
+| Binary | Role | Ports |
+| ------ | ---- | ----- |
+| `hbbs` | ID / rendezvous server | 21115/tcp, 21116/tcp + 21116/udp |
+| `hbbr` | Relay server | 21117/tcp |
+| `glass-utils` | `genkeypair`, `validatekeypair`, `doctor` | — |
+
+### Build
+
+The Rust toolchain is pinned in `rust-toolchain.toml` (Rust 1.96.0);
+rustup selects it automatically. With Nix, `nix build` produces the
+binaries in `./result/bin/`, and `nix develop` opens a shell with the
+same pinned toolchain.
+
+One prerequisite: the sqlx queries are type-checked against a live
+sqlite database at compile time, and `.env` points `DATABASE_URL` at
+`./db_v2.sqlite3`. Create that file once with the peer schema (the
+same DDL `hbbs` runs at startup; `nix develop` does this for you):
+
+```bash
+sqlite3 db_v2.sqlite3 "create table if not exists peer (guid blob primary key not null, id varchar(100) not null, uuid blob not null, pk blob not null, created_at datetime not null default(current_timestamp), user blob, status tinyint, note varchar(300), info text not null) without rowid; create unique index if not exists index_peer_id on peer (id); create index if not exists index_peer_user on peer (user); create index if not exists index_peer_created_at on peer (created_at); create index if not exists index_peer_status on peer (status);"
+cargo build --release
+```
+
+### Run
+
+```bash
+./hbbr &                          # relay on 21117
+./hbbs -r <relay-host>:21117      # rendezvous on 21115/21116
+```
+
+On first run each server generates its Ed25519 keypair in the working
+directory (`id_ed25519` / `id_ed25519.pub`); clients must be given the
+public key. `glass-utils doctor <server>` probes a running pair — it
+also probes port 21114 (API), which only the commercial build serves,
+so an open-source pair reports that one port as ERROR by design.
+
+Packaging in this repo: `docker/` and `docker-classic/` (s6-overlay
+images), `systemd/glass-hbbs.service` and `systemd/glass-hbbr.service`,
+`debian/` (glass-hbbs, glass-hbbr, glass-utils packages), and `ui/`
+(an optional Tauri console, excluded from the Cargo workspace).
+
+</details>
+
+
 <details id="Contact">
   <summary><strong>Contact Qompass AI</strong></summary>
 
