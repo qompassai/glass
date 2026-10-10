@@ -2,6 +2,7 @@
 name = "glass"
 version = "0.1.0"
 authors = ["Qompass AI <map@qompass.ai>"]
+license = "AGPL-3.0-only"
 build = "build.rs"
 edition = "2021"
 default-run = "hbbr"

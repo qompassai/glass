@@ -1,0 +1,33 @@
+<!-- /qompassai/glass/LICENSE-DUAL -->
+<!-- Qompass AI Glass — dual-license notice -->
+<!-- Copyright (c) 2026 Qompass AI -->
+
+# Dual-License Notice
+
+Effective 2026-10-10, by ruling of the copyright holder, the Q-CDA 1.0
+commercial license is retired from this repository. The licensing
+scheme is now:
+
+- **First-party Qompass AI code** in this repository — code whose
+  copyright is held by Qompass AI, including the build-restoration
+  and packaging work, the Nix flake, and documentation written for
+  Glass — is dual-licensed under the GNU Affero General Public
+  License v3.0 only (AGPL-3.0-only) **or** the Apache License 2.0,
+  at your option. Full texts: `LICENSE-AGPL` and `LICENSE-APACHE`.
+  First-party files carry an
+  `SPDX-License-Identifier: AGPL-3.0-only OR Apache-2.0` header.
+
+- **Upstream-derived portions** — Glass is a derivative of the
+  RustDesk open-source server codebase — remain licensed under
+  AGPL-3.0 as their license requires. Qompass AI cannot and does not
+  offer those portions under Apache-2.0. The combined work is
+  therefore distributed under AGPL-3.0 terms; the Apache-2.0 option
+  applies only to the first-party code identified above, used on its
+  own.
+
+- **Third-party dependencies** keep their own licenses, unchanged.
+
+Single-value license metadata (the `license` fields in `Cargo.toml`,
+`CITATION.cff`, and `.zenodo.json`) names AGPL-3.0-only, the license
+governing the work as a whole; it is not an Apache-2.0 claim over
+the upstream-derived code.

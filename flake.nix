@@ -1,12 +1,13 @@
 # ---------------------------------------------------------------------------
 # /qompassai/glass/flake.nix
 # Qompass AI Glass — Nix flake: server package and development shell
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: AGPL-3.0-only OR Apache-2.0
 # Copyright (c) 2026 Qompass AI
 #
-# This project is distributed under the repository's dual-license
-# scheme: AGPL-3.0 for non-commercial use, Q-CDA 1.0 for commercial
-# use. See LICENSE-AGPL and LICENSE-QCDA at the repository root.
+# This file is first-party Qompass AI code, dual-licensed under the
+# AGPL-3.0 or Apache-2.0, at your option. See LICENSE-AGPL and
+# LICENSE-APACHE at the repository root, and LICENSE-DUAL for the
+# scope of the dual license.
 #
 # packages.default builds the three server binaries (hbbs, hbbr,
 # glass-utils) with the exact Rust toolchain pinned in

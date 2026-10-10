@@ -16,7 +16,7 @@
   <a href="https://github.com/topics/rust-tutorial"><img src="https://img.shields.io/badge/Rust-Tutorials-green?style=flat-square" alt="Rust Tutorials"></a>
   <br>
   <a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="License: AGPL v3"></a>
-  <a href="./LICENSE-QCDA"><img src="https://img.shields.io/badge/license-Q--CDA-lightgrey.svg" alt="License: Q-CDA"></a>
+  <a href="./LICENSE-APACHE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache 2.0"></a>
 </p>
 
 ---
@@ -27,9 +27,11 @@
 Glass is a self-hosted rendezvous and relay server for remote-desktop
 clients: `hbbs` (ID/rendezvous server), `hbbr` (relay server), and
 `glass-utils` (key and diagnostics tooling). It is derived from the
-RustDesk open-source server codebase and is dual-licensed: AGPL-3.0
-for non-commercial use, Q-CDA 1.0 for commercial use (see
-`LICENSE-AGPL` and `LICENSE-QCDA`).
+RustDesk open-source server codebase. Qompass AI's first-party
+code in this repository is dual-licensed under AGPL-3.0 or
+Apache-2.0, at your option; the upstream-derived portions remain
+under AGPL-3.0 as their license requires (see `LICENSE-DUAL`,
+`LICENSE-AGPL`, and `LICENSE-APACHE`).
 
 ### Binaries and ports
 
@@ -249,7 +251,7 @@ Where:
 
 ### Protection for Vulnerable Populations
 
-The dual licensing aims to address the cybersecurity gap that disproportionately affects underserved populations. As highlighted by recent attacks[^1], low-income residents, seniors, and foreign language speakers face higher-than-average risks of being victims of cyberattacks. By offering both open-source and commercial licensing options, we encourage the development of cybersecurity solutions that can reach these vulnerable groups while also enabling sustainable development and support.
+The dual licensing aims to address the cybersecurity gap that disproportionately affects underserved populations. As highlighted by recent attacks[^1], low-income residents, seniors, and foreign language speakers face higher-than-average risks of being victims of cyberattacks. By offering first-party code under dual AGPL-3.0 / Apache-2.0 licensing terms, we encourage the development of cybersecurity solutions that can reach these vulnerable groups while also enabling sustainable development and support.
 
 ### Preventing Malicious Use
 
@@ -257,11 +259,11 @@ The AGPL-3.0 license ensures that any modifications to the software remain open 
 
 ### Addressing Cybersecurity in Critical Sectors
 
-The commercial license option allows for tailored solutions in critical sectors such as healthcare, which has seen significant impacts from cyberattacks. For example, the recent Change Healthcare attack[^4] affected millions of Americans and caused widespread disruption for hospitals and other providers. In January 2025, CISA[^2] and FDA[^3] jointly warned of critical backdoor vulnerabilities in Contec CMS8000 patient monitors, revealing how medical devices could be compromised for unauthorized remote access and patient data manipulation.
+The Apache-2.0 license option allows for tailored solutions in critical sectors such as healthcare, which has seen significant impacts from cyberattacks. For example, the recent Change Healthcare attack[^4] affected millions of Americans and caused widespread disruption for hospitals and other providers. In January 2025, CISA[^2] and FDA[^3] jointly warned of critical backdoor vulnerabilities in Contec CMS8000 patient monitors, revealing how medical devices could be compromised for unauthorized remote access and patient data manipulation.
 
 ### Supporting Cybersecurity Awareness
 
-The dual licensing model supports initiatives like the Cybersecurity and Infrastructure Security Agency (CISA) efforts to improve cybersecurity awareness[^7] in "target rich" sectors, including K-12 education[^5]. By allowing both open-source and commercial use, we aim to facilitate the development of tools that support these critical awareness and protection efforts.
+The dual licensing model supports initiatives like the Cybersecurity and Infrastructure Security Agency (CISA) efforts to improve cybersecurity awareness[^7] in "target rich" sectors, including K-12 education[^5]. By allowing use under either license, we aim to facilitate the development of tools that support these critical awareness and protection efforts.
 
 ### Bridging the Digital Divide
 
@@ -274,7 +276,7 @@ Recent attacks underscore the importance of robust cybersecurity measures:
 - The Change Healthcare cyberattack in February 2024 affected millions of Americans and caused significant disruption to healthcare providers.
 - The White House and Congress jointly designated October 2024 as Cybersecurity Awareness Month. This designation comes with over 100 actions that align the Federal government and public/private sector partners are taking to help every man, woman, and child to safely navigate the age of AI.
 
-By offering both open source and commercial licensing options, we strive to create a balance that promotes innovation and accessibility. We address the complex cybersecurity challenges faced by vulnerable populations and critical infrastructure sectors as the foundation of our solutions, not an afterthought..
+By offering dual AGPL-3.0 / Apache-2.0 licensing for first-party code, we strive to create a balance that promotes innovation and accessibility. We address the complex cybersecurity challenges faced by vulnerable populations and critical infrastructure sectors as the foundation of our solutions, not an afterthought..
 <div id="footnotes">
 [^1]: [International Counter Ransomware Initiative 2024 Joint Statement](https://www.whitehouse.gov/briefing-room/statements-releases/2024/10/02/international-counter-ransomware-initiative-2024-joint-statement/)
 

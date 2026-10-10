@@ -9,7 +9,7 @@ authors:
 version: "v2026-09-29"
 date-released: "2026-09-29"
 repository-code: "https://github.com/qompassai/glass"
-license: "Q-CDA-1.0"
+license: "AGPL-3.0-only"
 keywords:
   - AI
   - Education
