@@ -3,7 +3,16 @@ name = "glass"
 version = "0.1.0"
 authors = ["Qompass AI <map@qompass.ai>"]
 build = "build.rs"
+edition = "2021"
 default-run = "hbbr"
+
+[lib]
+name = "hbbs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "hbbs"
+path = "src/main.rs"
 
 [[bin]]
 name = "hbbr"
@@ -15,16 +24,6 @@ path = "src/utils.rs"
 
 
 [dependencies]
-oqs = { version = "0.11.0", default-features = false, features = [
-  "vendored",
-  "kems",
-  "sigs",
-] }
-oqs-sys = { version = "0.11.0", default-features = false, features = [
-  "vendored",
-  "kems",
-  "sigs",
-] }
 hbb_common = { path = "libs/hbb_common" }
 serde_derive = "1.0"
 serde = "1.0"
