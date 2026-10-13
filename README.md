@@ -15,8 +15,8 @@
   <a href="https://doc.rust-lang.org/book/"><img src="https://img.shields.io/badge/Rust-Documentation-blue?style=flat-square" alt="Rust Documentation"></a>
   <a href="https://github.com/topics/rust-tutorial"><img src="https://img.shields.io/badge/Rust-Tutorials-green?style=flat-square" alt="Rust Tutorials"></a>
   <br>
-  <a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="License: AGPL v3"></a>
-  <a href="./LICENSE-APACHE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache 2.0"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache 2.0"></a>
+
 </p>
 
 ---
@@ -28,7 +28,6 @@ Glass is a self-hosted rendezvous and relay server for remote-desktop
 clients: `hbbs` (ID/rendezvous server), `hbbr` (relay server), and
 `glass-utils` (key and diagnostics tooling). It is derived from the
 RustDesk open-source server codebase. Qompass AI's first-party
-code in this repository is dual-licensed under AGPL-3.0 or
 Apache-2.0, at your option; the upstream-derived portions remain
 under AGPL-3.0 as their license requires (see `LICENSE-DUAL`,
 `LICENSE-AGPL`, and `LICENSE-APACHE`).
@@ -85,7 +84,7 @@ images), `systemd/glass-hbbs.service` and `systemd/glass-hbbr.service`,
  <div align="center">
   <p>Matthew A. Porter<sup>1</sup><br>
   <sup>1</sup>Qompass AI, Spokane, WA</p>
-  
+
   <h3>Publications</h3>
   <p>
     <a href="https://orcid.org/0000-0002-0302-4812">
@@ -98,7 +97,7 @@ images), `systemd/glass-hbbs.service` and `systemd/glass-hbbr.service`,
       <img src="https://img.shields.io/badge/Zenodo-Publications-blue?style=flat-square&logo=zenodo" alt="Zenodo">
     </a>
   </p>
-  
+
   <h3>Professional Profiles</h3>
   <p>
     <a href="https://www.linkedin.com/in/matt-a-porter-103535224/">
@@ -108,7 +107,7 @@ images), `systemd/glass-hbbs.service` and `systemd/glass-hbbr.service`,
       <img src="https://img.shields.io/badge/LinkedIn-Qompass--AI-blue?style=flat-square&logo=linkedin" alt="Startup LinkedIn">
     </a>
   </p>
-  
+
   <h3>Social Media</h3>
   <p>
     <a href="https://twitter.com/PhaedrusFlow">
@@ -121,7 +120,7 @@ images), `systemd/glass-hbbs.service` and `systemd/glass-hbbr.service`,
       <img src="https://img.shields.io/badge/YouTube-QompassAI-red?style=flat-square&logo=youtube" alt="YouTube">
     </a>
   </p>
-  
+
 <div align="center">
 <h3>Support & Funding</h3>
 
@@ -160,7 +159,7 @@ images), `systemd/glass-hbbs.service` and `systemd/glass-hbbr.service`,
 
 <h3 align="center">Developer Programs</h3>
 <div align="center">
- 
+
 [![NVIDIA Developer](https://img.shields.io/badge/NVIDIA-Developer_Program-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://developer.nvidia.com/)
 [![Meta Developer](https://img.shields.io/badge/Meta-Developer_Program-0668E1?style=for-the-badge&logo=meta&logoColor=white)](https://developers.facebook.com/)
 [![HackerOne](https://img.shields.io/badge/-HackerOne-%23494649?style=for-the-badge&logo=hackerone&logoColor=white)](https://hackerone.com/phaedrusflow)
@@ -231,7 +230,7 @@ Where:
 
 ### Q: Do I have to buy a Linux computer to use this? I don't have time for that!
 ### A: No. You can run Linux and/or the tools we share alongside your existing operating system:
-    
+
 * Windows users can use Windows Subsystem for Linux [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 * Mac users can use [Homebrew](https://brew.sh/)
 * The code-base instructions were developed with both beginners and advanced users in mind.
@@ -347,3 +346,7 @@ This should display the version of Rust that you just installed.
 rustup self uninstall
 ```
 This will remove Rust and all its associated tools from your system.
+
+## License
+
+This project is licensed under the [Apache License, Version 2.0](./LICENSE).
